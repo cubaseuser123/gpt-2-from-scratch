@@ -17,5 +17,7 @@ Currently working through the early stages in `gpt2_from_scratch.ipynb`. So far,
 - Building a custom character-level tokenizer (encoding strings to integers and decoding back).
 - Preparing the dataset by converting it into PyTorch tensors and splitting it into training (90%) and validation (10%) sets.
 - Engineering the data loader `get_batch()` function to slice the data into context windows (`block_size`) and stack them into parallel batches (`batch_size`) for GPU processing.
+- Implementing a baseline **Bigram Language Model** using `torch.nn.Module`, including an embedding table, cross-entropy loss calculation, and an autoregressive generation loop.
+- Setting up the PyTorch `AdamW` optimizer and running a basic training loop to optimize the model and verify token generation.
 
-**Next step:** Building the baseline neural network (Bigram Language Model) and moving towards implementing self-attention!
+**Next step:** Upgrading the Bigram model by implementing the core mathematical building blocks of the Transformer: Multi-Head Self-Attention!
