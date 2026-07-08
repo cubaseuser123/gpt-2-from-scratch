@@ -19,5 +19,8 @@ Currently working through the early stages in `gpt2_from_scratch.ipynb`. So far,
 - Engineering the data loader `get_batch()` function to slice the data into context windows (`block_size`) and stack them into parallel batches (`batch_size`) for GPU processing.
 - Implementing a baseline **Bigram Language Model** using `torch.nn.Module`, including an embedding table, cross-entropy loss calculation, and an autoregressive generation loop.
 - Setting up the PyTorch `AdamW` optimizer and running a basic training loop to optimize the model and verify token generation.
+- Consolidating the core training loop into a master script/cell for clean, repeatable iterations.
+- Refactoring the Bigram model to support self-attention by extracting a token embedding layer (`n_embed`), injecting **position embeddings**, and routing through a linear language modeling head.
+- Exploring the **mathematical trick in self-attention**, demonstrating how lower-triangular masking (`torch.tril`) and `softmax` allow tokens to selectively aggregate context from previous timesteps using matrix multiplication.
 
-**Next step:** Upgrading the Bigram model by implementing the core mathematical building blocks of the Transformer: Multi-Head Self-Attention!
+**Next step:** Implementing the actual `Head`, `MultiHeadAttention`, and `FeedForward` PyTorch modules to build a complete Transformer block!
